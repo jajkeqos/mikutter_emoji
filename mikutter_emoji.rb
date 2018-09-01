@@ -17,7 +17,7 @@ Plugin.create(:emoji) do
         end
       end
     end
-    Service.primary.post :message => text
+    Service.primary.post text
     Plugin.call(:before_postbox_text, text)
     Plugin.create(:gtk).widgetof(gui_postbox).widget_post.buffer.text=''
     Plugin.filter_cancel!
